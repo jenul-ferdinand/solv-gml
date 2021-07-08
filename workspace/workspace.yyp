@@ -1,5 +1,8 @@
 {
   "resources": [
+    {"id":{"name":"RandomiseValues","path":"scripts/RandomiseValues/RandomiseValues.yy",},"order":0,},
+    {"id":{"name":"obj_controller","path":"objects/obj_controller/obj_controller.yy",},"order":1,},
+    {"id":{"name":"fn_main","path":"fonts/fn_main/fn_main.yy",},"order":0,},
     {"id":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},"order":0,},
   ],
   "Options": [
