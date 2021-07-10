@@ -20,3 +20,9 @@ value2 = irandom_range(1, values_max);
 points = 0;
 question_value = 1;
 questions_solved = 0;
+questions_upgrade = 5;
+
+debug_toggle = false;
+
+// Titlebar
+dragging = false;
