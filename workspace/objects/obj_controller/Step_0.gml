@@ -39,6 +39,7 @@ if (keyboard_string != "" && real(keyboard_string) == (value1 + value2)) {
 		for (var i = 0; i < array_length(upgrade_stage); i++) {
 			
 			// Loop through all the stages
+
 			if (points >= upgrade_stage[i] && upgrade[i].instance_identity == -1) {
 				
 				// Create an upgrade and adding its properties
