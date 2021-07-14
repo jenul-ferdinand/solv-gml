@@ -37,7 +37,7 @@ if (keyboard_string != "" && real(keyboard_string) == (value1 + value2)) {
 		for (var i = 0; i < array_length(upgrade_stage); i++) {
 			
 			// Loop through all the stages
-			if (points >= upgrade_stage[i]) {
+			if (points == upgrade_stage[i]) {
 	
 				// Upgrade constructor
 				function Upgrade(_inst_id, _label, _cost) constructor {
@@ -51,7 +51,7 @@ if (keyboard_string != "" && real(keyboard_string) == (value1 + value2)) {
 				upgrade.stage = upgrade_stage[i];
 				upgrade.label = ds_upgrades[UPGRADE_DATA.LABEL, i];
 				upgrade.cost = ds_upgrades[UPGRADE_DATA.COST, i];
-				show_debug_message(upgrade.label);
+				show_debug_message("instance create: " + upgrade.label + " Cost: " + string(upgrade.cost) + " ID: " + string(upgrade));
 				
 				// Create class and add properties
 				upgrade_struct[i] = new Upgrade(upgrade, upgrade.label, upgrade.cost);
