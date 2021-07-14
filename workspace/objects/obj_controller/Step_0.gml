@@ -27,37 +27,32 @@ if (keyboard_string != "" && real(keyboard_string) == (value1 + value2)) {
 		// Reset the keyboard_string value
 		keyboard_string = ""; 
 		
-		// Difficulty progression (there could be a better way of doing this)
+		
+		// Difficulty progression
 		if (questions_solved == questions_upgrade) {
 			values_max++;
 			questions_upgrade *= 2;
 		}
 		
+		
 		// Creating upgrades
 		for (var i = 0; i < array_length(upgrade_stage); i++) {
 			
 			// Loop through all the stages
-			if (points == upgrade_stage[i]) {
-	
-				// Upgrade constructor
-				function Upgrade(_inst_id, _label, _cost) constructor {
-					inst_id = _inst_id;
-					label = _label;
-					cost = _cost;
-				}
+
+			if (points >= upgrade_stage[i] && upgrade[i].instance_identity == -1) {
 				
 				// Create an upgrade and adding its properties
-				var upgrade = instance_create_layer(upgrade_x, 130 * (i+1), "Instances", obj_upgrade);
-				upgrade.stage = upgrade_stage[i];
-				upgrade.label = ds_upgrades[UPGRADE_DATA.LABEL, i];
-				upgrade.cost = ds_upgrades[UPGRADE_DATA.COST, i];
-				show_debug_message("instance create: " + upgrade.label + " Cost: " + string(upgrade.cost) + " ID: " + string(upgrade));
+				var upgrade_instace = instance_create_layer(upgrade_x, 130 * (i+1), "Instances", obj_upgrade);
+				upgrade_instace.stage = upgrade_stage[i];
+				upgrade_instace.cost = upgrade[i].cost;
+				upgrade_instace.label = upgrade[i].label;
 				
-				// Create class and add properties
-				upgrade_struct[i] = new Upgrade(upgrade, upgrade.label, upgrade.cost);
-				show_debug_message(upgrade_struct[i]);
+				upgrade[i].instance_identity = upgrade_instace;
 			}
 			
 		}
+		
+		
 	}
 }
