@@ -4,7 +4,7 @@ if (debug_toggle) {
 	
 	// Game information
 	var yy = 40;
-	draw_text(10, yy, "points: " + string(points));						yy += 15;
+	draw_text(10, yy, "total_marks: " + string(total_marks));						yy += 15;
 	draw_text(10, yy, "value_max: " + string(values_max));				yy += 15;
 	draw_text(10, yy, "questions_solved: " + string(questions_solved));	yy += 15;
 	draw_text(10, yy, "fps: " + string(fps_real));						yy += 15;
@@ -16,21 +16,28 @@ if (debug_toggle) {
 #endregion 
 
 // Marks
-draw_set_halign(fa_center);
+draw_set_halign(fa_left);
 draw_set_font(fn_marks);
-var marks_string = string(points) + " Marks";
-if (points == 1) { marks_string = string(points) + " Mark"; }
-else if (points == 0) { marks_string = "No Marks"; }
-else { marks_string = string(points) + " Marks"; } 
-draw_text(150, 90, string(points) + " Marks");
+var marks_converted = StringThousands(round(display_marks));
+var marks_string = marks_converted + " Marks";
+if (total_marks == 1) { marks_string = marks_converted + " Mark"; }
+else if (total_marks == 0) { marks_string = "No Marks"; }
+else { marks_string = marks_converted + " Marks"; } 
+draw_text(leftmost, topmost, marks_string);
+draw_set_font(-1);
+
+// Question Value
+draw_set_font(fn_question_value);
+draw_text(leftmost, topmost + 45, "Question Value: " + string(question_value));
+draw_text(leftmost, topmost + 70, "Marks Per Second: " + string(marks_per_second));
 draw_set_font(-1);
 
 // Question
 draw_set_font(fn_question_area);
-draw_text(150, 300, string(value1) + " " + symbol[0] + " " + string(value2))
+draw_text(leftmost, 300, string(value1) + " " + symbol[0] + " " + string(value2))
 // Answer
 draw_set_halign(fa_left);
-draw_text(55, 370, "= " + type_string);
+draw_text(leftmost, 370, "= " + keyboard_string);
 draw_set_font(-1);
 
 #region TITLEBAR
@@ -83,9 +90,7 @@ if (point_in_circle(gui_mouse_x, gui_mouse_y, center_x, center_y, titlebar_butto
 
 #endregion
 
-
-
 // Upgrades heading
 draw_set_font(fn_heading);
-draw_text(1113, 86, "Upgrades");
+draw_text(upgrades_heading_x, topmost, "Upgrades");
 draw_set_font(-1);

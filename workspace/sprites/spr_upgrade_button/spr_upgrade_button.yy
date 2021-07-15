@@ -27,21 +27,25 @@
     {"compositeImage":{"FrameId":{"name":"90a2645b-3898-4f54-ba14-9eb82a209d38","path":"sprites/spr_upgrade_button/spr_upgrade_button.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"90a2645b-3898-4f54-ba14-9eb82a209d38","path":"sprites/spr_upgrade_button/spr_upgrade_button.yy",},"LayerId":{"name":"255d1e55-2449-447e-b54f-ec7d5f35de61","path":"sprites/spr_upgrade_button/spr_upgrade_button.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_upgrade_button","path":"sprites/spr_upgrade_button/spr_upgrade_button.yy",},"resourceVersion":"1.0","name":"90a2645b-3898-4f54-ba14-9eb82a209d38","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"4fa0f8de-6b32-424e-94cf-c75ab77a7e3b","path":"sprites/spr_upgrade_button/spr_upgrade_button.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"4fa0f8de-6b32-424e-94cf-c75ab77a7e3b","path":"sprites/spr_upgrade_button/spr_upgrade_button.yy",},"LayerId":{"name":"255d1e55-2449-447e-b54f-ec7d5f35de61","path":"sprites/spr_upgrade_button/spr_upgrade_button.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_upgrade_button","path":"sprites/spr_upgrade_button/spr_upgrade_button.yy",},"resourceVersion":"1.0","name":"4fa0f8de-6b32-424e-94cf-c75ab77a7e3b","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_upgrade_button","path":"sprites/spr_upgrade_button/spr_upgrade_button.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 30.0,
+    "playbackSpeed": 0.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 1.0,
+    "length": 2.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"c8c72bea-2dd7-4516-b886-454624653567","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"90a2645b-3898-4f54-ba14-9eb82a209d38","path":"sprites/spr_upgrade_button/spr_upgrade_button.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"9bc40227-8989-47f9-a59b-31c395987bdc","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4fa0f8de-6b32-424e-94cf-c75ab77a7e3b","path":"sprites/spr_upgrade_button/spr_upgrade_button.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
