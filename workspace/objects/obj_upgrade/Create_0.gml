@@ -6,4 +6,13 @@ flash_colour = c_white;
 stage = -1;
 label = "";
 cost = -1;
+question_value = 0;
+marks_per_second = 0;
+quantity = 0;
 
+cost_colour = c_red;
+
+// Tooltip
+tooltip_colour = make_color_rgb(44, 43, 47);
+
+counter = 0;

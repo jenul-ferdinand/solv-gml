@@ -1,8 +1,8 @@
 function GlobalVariables(){
-	globalvar gui_width, gui_height, points;
+	globalvar gui_width, gui_height, total_marks;
 	gui_width = display_get_gui_width();
 	gui_height = display_get_gui_height();
 	
-	points = 0;
+	total_marks = 0;
 
 }

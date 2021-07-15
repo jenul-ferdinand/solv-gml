@@ -1,7 +1,10 @@
 draw_self();
 
 draw_set_font(fn_upgrade_label);
-draw_text(x, y, string(cost) + " " + label);
+draw_text(x + 10, y + 10, label + ": " + string(quantity));
+draw_set_colour(cost_colour);
+draw_text(x + 10, y + (sprite_get_height(spr_upgrade_button) - 30), + "Price: " + string(cost));
+draw_set_colour(c_white);
 draw_set_font(-1);
 
 // Drawing the flash shader
@@ -14,4 +17,9 @@ if (flash_alpha > 0) {
 	
 	// Reset the shader
 	shader_reset();
+}
+
+// Darken overlay 
+if (total_marks < cost) {
+	draw_sprite_ext(spr_upgrade_button, 0, x, y, image_xscale, image_yscale, image_angle, c_black, 0.5);
 }

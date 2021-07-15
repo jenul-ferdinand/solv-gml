@@ -1,4 +1,0 @@
-// Titlebar
-function DrawTitlebar() {
-	
-}
