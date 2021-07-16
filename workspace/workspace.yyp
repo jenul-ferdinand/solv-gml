@@ -13,7 +13,6 @@
     {"id":{"name":"fn_question_value","path":"fonts/fn_question_value/fn_question_value.yy",},"order":4,},
     {"id":{"name":"obj_close_button","path":"objects/obj_close_button/obj_close_button.yy",},"order":3,},
     {"id":{"name":"spr_upgrade_button","path":"sprites/spr_upgrade_button/spr_upgrade_button.yy",},"order":0,},
-    {"id":{"name":"GlobalVariables","path":"scripts/GlobalVariables/GlobalVariables.yy",},"order":1,},
     {"id":{"name":"fn_question_area","path":"fonts/fn_question_area/fn_question_area.yy",},"order":0,},
     {"id":{"name":"snd_solve","path":"sounds/snd_solve/snd_solve.yy",},"order":0,},
     {"id":{"name":"obj_upgrade","path":"objects/obj_upgrade/obj_upgrade.yy",},"order":2,},

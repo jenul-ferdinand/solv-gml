@@ -1,35 +1,22 @@
-randomise();
+randomise(); // Always get random game seed
 
 // Global variables
-GlobalVariables();
+globalvar gui_width, gui_height, total_marks;
+gui_width = display_get_gui_width(); // GUI width
+gui_height = display_get_gui_height(); // GUI height
+total_marks = 0; // Points counting (marks)
 
-display_marks = 0;
-display_marks_lerp = 0.3;
-
-symbol[0] = "+";
-symbol[1] = "x";
-symbol[2] = "/";
-
-str_max = 2;
-
-// Randomise values
-values_max = 5;
-RandomiseValues(values_max)
-
-question_value = 1;
-questions_solved = 0;
-questions_upgrade = 5;
-
-marks_per_second = 0;
-marks_per_second_counter = 0;
-
-debug_toggle = false;
 
 #region GUI Elements
 
-leftmost = 45;
-rightmost = gui_width - 25;
-topmost = 65;
+// Background
+bg_colour = make_color_rgb(28, 27, 31); // Game background colour
+
+// Buffers
+left_windowbuffer = 45;
+right_windowbuffer = gui_width - 25;
+bottom_windowbuffer = gui_height - 65;
+top_windowbuffer = 65;
 
 // Upgrades heading
 upgrades_heading_x = gui_width - 266;
@@ -39,21 +26,42 @@ dragging = false;
 titlebar_colour = make_color_rgb(24, 24, 24);
 titlebar_width = gui_width;
 titlebar_height = 40;
-
+// Close button
 close_button_x = titlebar_width - 30;
 close_button_y = 10;
 close_button_sprite = spr_close_icon;
-
+// Minimise button
 minimise_button_x = titlebar_width - 60;
 minimise_button_y = 10;
 minimise_button_sprite = spr_minimise_icon;
-
+// Titlebar buttons
 titlebar_button_width = sprite_get_width(close_button_sprite);
+
 #endregion
+
+display_marks = 0; // Displayed points, using lerp to count one by one
+display_marks_lerp = 0.3; // Displayed points interpolation amount
+
+char_max = 2; // Maximum amount of characters the user can type into the textbox
+
+values_max = 5; // Random values range
+RandomiseValues(values_max) // Get random values
+
+question_value = 1;	// How many points you get from solving a quesion
+questions_solved = 0; // How many questions has the user solved
+questions_upgrade = 5; // How many questions does the user need to solve to progress to the next difficulty (subject to change)
+
+marks_per_second = 0; // Marks per second, a passive effect that adds points per second
+marks_per_second_counter = 0; // Counter for executing the marks per second additions
+
+debug_toggle = false; // Toggle to turn on debug mode
+
+
 
 // Upgrades 
 upgrade_x = 990;
-upgrade_y = 130;
+upgrade_y = 110;
+last_upgrade_ybase = upgrade_y * 5;
 
 // Upgrade class constructor
 function Upgrade(_label, _cost, _marks_per_second, _question_value) constructor {
@@ -65,7 +73,7 @@ function Upgrade(_label, _cost, _marks_per_second, _question_value) constructor 
 	question_value = _question_value;
 	
 	// Instance id variable
-	instance_identity = -1;
+	inst_id = -1;
 }
 
 // Upgrade macros
@@ -74,11 +82,24 @@ function Upgrade(_label, _cost, _marks_per_second, _question_value) constructor 
 #macro CALCULUS 2
 
 // Creating the upgrade structs
-upgrade[SIMPLE_ARITHMETIC] = new Upgrade("Simple Arithmetic", 4, 0, 1);
-upgrade[FUNCTIONS] = new Upgrade("Functions", 6, 1, 0);
-upgrade[CALCULUS] = new Upgrade("Calculus", 8, 10, 0);
+upgrade = [
+	new Upgrade("Arithmetic", 4, 0, 1),
+	new Upgrade("Functions", 6, 1, 0),
+	new Upgrade("Calculus", 8, 10, 0),
+	new Upgrade("test 1", 10, 1, 1),
+	new Upgrade("test 2", 12, 1, 1),
+	new Upgrade("test 3", 14, 1, 1),
+	new Upgrade("test 4", 16, 1, 1),
+	new Upgrade("test 5", 18, 1, 1),
+]
 
 // Points upgrade_stage
 upgrade_stage[SIMPLE_ARITHMETIC] = 1;
 upgrade_stage[FUNCTIONS] = 2;
-upgrade_stage[CALCULUS] = 3; 
+upgrade_stage[CALCULUS] = 3;
+for (var i = 3; i < array_length(upgrade); i++) { upgrade_stage[i] = 3; }
+
+// Scrolling upgrades
+scroll_amount = 20;
+scroll_down_locked = false;
+scroll_up_locked = false;
