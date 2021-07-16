@@ -23,21 +23,21 @@ var marks_string = marks_converted + " Marks";
 if (total_marks == 1) { marks_string = marks_converted + " Mark"; }
 else if (total_marks == 0) { marks_string = "No Marks"; }
 else { marks_string = marks_converted + " Marks"; } 
-draw_text(leftmost, topmost, marks_string);
+draw_text(left_windowbuffer, top_windowbuffer, marks_string);
 draw_set_font(-1);
 
 // Question Value
 draw_set_font(fn_question_value);
-draw_text(leftmost, topmost + 45, "Question Value: " + string(question_value));
-draw_text(leftmost, topmost + 70, "Marks Per Second: " + string(marks_per_second));
+draw_text(left_windowbuffer, top_windowbuffer + 45, "Question Value: " + string(question_value));
+draw_text(left_windowbuffer, top_windowbuffer + 70, "Marks Per Second: " + string(marks_per_second));
 draw_set_font(-1);
 
 // Question
 draw_set_font(fn_question_area);
-draw_text(leftmost, 300, string(value1) + " " + symbol[0] + " " + string(value2))
+draw_text(left_windowbuffer, 300, string(value1) + " + " + string(value2))
 // Answer
 draw_set_halign(fa_left);
-draw_text(leftmost, 370, "= " + keyboard_string);
+draw_text(left_windowbuffer, 370, "= " + keyboard_string);
 draw_set_font(-1);
 
 #region TITLEBAR
@@ -90,7 +90,12 @@ if (point_in_circle(gui_mouse_x, gui_mouse_y, center_x, center_y, titlebar_butto
 
 #endregion
 
+// Rectangle to hide the buttons when they are scrolled up
+draw_set_colour(bg_colour);
+draw_rectangle(upgrade_x, titlebar_height, upgrade_x + sprite_get_width(spr_upgrade_button), upgrade_y, false);
+draw_set_colour(-1);
+
 // Upgrades heading
 draw_set_font(fn_heading);
-draw_text(upgrades_heading_x, topmost, "Upgrades");
+draw_text(upgrades_heading_x, top_windowbuffer, "Upgrades");
 draw_set_font(-1);
