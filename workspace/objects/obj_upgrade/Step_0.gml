@@ -25,9 +25,12 @@ if (total_marks >= cost) {
 			// Add total_marks per second
 			obj_controller.marks_per_second += marks_per_second;
 			show_debug_message("Marks per second: " + string(obj_controller.marks_per_second))
-		
+			
 			// Increase quantity
 			quantity++;
+			
+			// Cost increase
+			cost = round(base_cost * power(1.15, quantity));
 			
 			// Reset image index
 			image_index = 0;
@@ -40,8 +43,10 @@ if (total_marks >= cost) {
 
 // Change colour
 if (total_marks < cost) { 
-	cost_colour = c_lime; 
-} 
+	cost_colour = c_red; 
+} else { 
+	cost_colour = c_lime;	
+}
 
 
 // Reducing flash
