@@ -7,6 +7,14 @@ mouse_click_release = mouse_check_button_released(mb_left);
 // Debugging
 if (keyboard_check_pressed(ord("R"))) { game_restart(); }
 if (keyboard_check_pressed(vk_escape)) { game_end(); }
+if (keyboard_check(ord("W"))) { 
+	total_marks += question_value;
+	questions_solved++;
+	
+	RandomiseValues(values_max);
+	
+	CreateUpgrades();
+}
 
 // Limit the string to the maximum chars and allow only digits
 keyboard_string = string_copy(string_digits(keyboard_string), 0, char_max);
@@ -31,28 +39,7 @@ if (keyboard_string != "" && real(keyboard_string) == (value1 + value2)) {
 		}
 		
 		// Creation of the upgrade
-		for (var i = 0; i < array_length(upgrade_stage); i++) {
-			
-			// Check all stages and check if already exists
-			if (total_marks >= upgrade_stage[i] && upgrade[i].inst_id == -1) {
-				
-				// Create an upgrade and assign its properties
-				var yy;
-				if (i == 0) { yy = upgrade_y; } 
-				else { yy = upgrade[i-1].inst_id.y + sprite_get_height(spr_upgrade_button) + 25; }
-					
-				var upgrade_instance = instance_create_layer(upgrade_x, yy, "Instances", obj_upgrade);
-				upgrade_instance.stage = upgrade_stage[i];
-				upgrade_instance.cost = upgrade[i].cost;
-				upgrade_instance.label = upgrade[i].label;
-				upgrade_instance.marks_per_second = upgrade[i].marks_per_second;
-				upgrade_instance.question_value = upgrade[i].question_value;
-				
-				upgrade[i].inst_id = upgrade_instance;
-			}
-			
-		}
-		
+		CreateUpgrades();
 		
 	}
 }
@@ -84,29 +71,29 @@ for (var i = 0; i < array_length(upgrade); i++) {
 	// Store the upgrades instances in a local variable
 	var upgrades_id = upgrade[i].inst_id;
 	
-	// Move the upgrades down
-	if (mouse_wheel_down() && !scroll_down_locked) { 
+	// Scrolling up moves the upgrades down
+	if (mouse_wheel_up() && !scroll_up_locked) { 
 		upgrades_id.y += scroll_amount;
 	} 
 		
-	// Move the upgrades up
-	if (mouse_wheel_up() && !scroll_up_locked) {
+	// Scrolling down moves the upgrades up
+	if (mouse_wheel_down() && !scroll_down_locked) {
 		upgrades_id.y -= scroll_amount;
 	}
 }
 
 // Limit scrolling above first upgrade
-if (upgrade[0].inst_id.y >= upgrade_y) {
-	scroll_down_locked = true;
+if (upgrade[ARITHMETIC].inst_id.y >= upgrade_y) {
+	scroll_up_locked = true;
 } else {
-	scroll_down_locked = false;	
+	scroll_up_locked = false;	
 }
 
 // Limit scrolling below last upgrade
 if (upgrade[array_length(upgrade)-1].inst_id.y <= last_upgrade_ybase) {
-	scroll_up_locked = true;
+	scroll_down_locked = true;
 } else {
-	scroll_up_locked = false;	
+	scroll_down_locked = false;	
 }
 
 // Scroll debugging

@@ -64,10 +64,12 @@ upgrade_y = 110;
 last_upgrade_ybase = upgrade_y * 5;
 
 // Upgrade class constructor
-function Upgrade(_label, _cost, _marks_per_second, _question_value) constructor {
+function Upgrade(_sprite, _label, _description, _cost, _marks_per_second, _question_value) constructor {
 	
 	// Assign to var
+	sprite = _sprite;
 	label = _label;
+	description = _description;
 	cost = _cost;
 	marks_per_second = _marks_per_second;
 	question_value = _question_value;
@@ -77,29 +79,32 @@ function Upgrade(_label, _cost, _marks_per_second, _question_value) constructor 
 }
 
 // Upgrade macros
-#macro SIMPLE_ARITHMETIC 0
-#macro FUNCTIONS 1
+#macro ARITHMETIC 0
+#macro CALCULATOR 1
 #macro CALCULUS 2
 
 // Creating the upgrade structs
 upgrade = [
-	new Upgrade("Arithmetic", 4, 0, 1),
-	new Upgrade("Functions", 6, 1, 0),
-	new Upgrade("Calculus", 8, 10, 0),
-	new Upgrade("test 1", 10, 1, 1),
-	new Upgrade("test 2", 12, 1, 1),
-	new Upgrade("test 3", 14, 1, 1),
-	new Upgrade("test 4", 16, 1, 1),
-	new Upgrade("test 5", 18, 1, 1),
+	new Upgrade(spr_pencil, "Pencil", "To do mathematics, you need something to write with.", 15, 0, 0.1),
+	new Upgrade(spr_mathematician, "Mathematician", "Mathematicians do maths for a living.", 100, 1, 0),
+	new Upgrade(spr_trigonometry, "Trigonometry", "Trigonometry is all about triangles", 500, 4, 0),
+	new Upgrade(spr_amphetamine, "Amphetamine", "A drug that increases focus and concentration.", 3000, 10, 0),
+	new Upgrade(spr_artificial_intelligence, "Artificial Intelligence", "Humans played god and made A.I", 10000, 40, 0),
+	new Upgrade(spr_quantum_computing, "Quantum Computing", "Powerful machines", 40000, 100, 0),
+	new Upgrade(spr_space_travel, "Space Travel", "Maybe we can find Aliens to help solve the math questions", 200000, 1, 0),
+	new Upgrade(spr_time_travel, "Time Travel", "Travelling into the future to find the answer to our questions", 1500000, 1, 0),
+	new Upgrade(spr_animal_sacrifice, "Animal Sacrifice", "A ritiual sacrificing an animal to solve maths", 123666666, 6666, 0),
+	new Upgrade(spr_undead_experiments, "Undead Experiments", "Bringing the dead back to life", 3999999999, 999999, 0),
+	new Upgrade(spr_nuclear_warefare, "Nuclear Warefare", "This isn't about solving maths anymore", 75000000000, 10000000, 0),
 ]
 
-// Points upgrade_stage
-upgrade_stage[SIMPLE_ARITHMETIC] = 1;
-upgrade_stage[FUNCTIONS] = 2;
-upgrade_stage[CALCULUS] = 3;
-for (var i = 3; i < array_length(upgrade); i++) { upgrade_stage[i] = 3; }
+// Points upgrade_creation
+upgrade_creation[ARITHMETIC] = 1;
+upgrade_creation[CALCULATOR] = 2;
+upgrade_creation[CALCULUS] = 3;
+for (var i = 3; i < array_length(upgrade); i++) { upgrade_creation[i] = 3; }
 
 // Scrolling upgrades
-scroll_amount = 20;
+scroll_amount = 28;
 scroll_down_locked = false;
 scroll_up_locked = false;
