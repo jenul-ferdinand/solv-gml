@@ -64,7 +64,7 @@ questions_upgrade = 5; // How many questions does the user need to solve to prog
 marks_per_second = 0; // Marks per second, a passive effect that adds points per second
 marks_per_second_counter = 0; // Counter for executing the marks per second additions
 
-debug = true; // Debug mode
+debug = false; // Debug mode
 debug_display_toggle = false; // Toggle to turn on debug display
 
 
@@ -103,9 +103,9 @@ upgrade = [
 	new Upgrade(spr_amphetamine, "Amphetamine", "A drug that increases focus and concentration.", 3000, 10, 0),
 	new Upgrade(spr_artificial_intelligence, "Artificial Intelligence", "Humans played god and made A.I", 10000, 40, 0),
 	new Upgrade(spr_quantum_computing, "Quantum Computing", "Powerful machines", 40000, 100, 0),
-	new Upgrade(spr_space_travel, "Space Travel", "Maybe we can find Aliens to help solve the math questions", 200000, 1, 0),
-	new Upgrade(spr_time_travel, "Time Travel", "Travelling into the future to find the answer to our questions", 1500000, 1, 0),
-	new Upgrade(spr_animal_sacrifice, "Animal Sacrifice", "A ritiual sacrificing an animal to solve maths", 123666666, 6666, 0),
+	new Upgrade(spr_space_travel, "Space Travel", "Maybe we can find Aliens to help solve the math questions", 200000, 400, 0),
+	new Upgrade(spr_time_travel, "Time Travel", "Travelling into the future to find the answer to our questions", 1500000, 6666, 0),
+	new Upgrade(spr_animal_sacrifice, "Animal Sacrifice", "A ritiual sacrificing an animal to solve maths", 123666666, 98765, 0),
 	new Upgrade(spr_undead_experiments, "Undead Experiment", "Bringing the dead back to life", 3999999999, 999999, 0),
 	new Upgrade(spr_nuclear_warefare, "Nuclear Warefare", "This isn't about solving maths anymore", 75000000000, 10000000, 0),
 ]

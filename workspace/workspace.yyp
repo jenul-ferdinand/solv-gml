@@ -21,7 +21,6 @@
     {"id":{"name":"spr_mathematician","path":"sprites/spr_mathematician/spr_mathematician.yy",},"order":0,},
     {"id":{"name":"CreateUpgrades","path":"scripts/CreateUpgrades/CreateUpgrades.yy",},"order":4,},
     {"id":{"name":"spr_undead_experiments","path":"sprites/spr_undead_experiments/spr_undead_experiments.yy",},"order":9,},
-    {"id":{"name":"obj_close_button","path":"objects/obj_close_button/obj_close_button.yy",},"order":3,},
     {"id":{"name":"spr_upgrade_button","path":"sprites/spr_upgrade_button/spr_upgrade_button.yy",},"order":0,},
     {"id":{"name":"fn_question_area","path":"fonts/fn_question_area/fn_question_area.yy",},"order":0,},
     {"id":{"name":"spr_time_travel","path":"sprites/spr_time_travel/spr_time_travel.yy",},"order":6,},

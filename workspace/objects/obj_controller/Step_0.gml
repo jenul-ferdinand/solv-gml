@@ -11,7 +11,7 @@ if (debug) {
 	if (keyboard_check_pressed(ord("O"))) { debug_display_toggle = !debug_display_toggle; } 
 	
 	if (keyboard_check(ord("W"))) { 
-		total_marks += question_value;
+		total_marks += question_value * 10000;
 		questions_solved++;
 	
 		RandomiseValues(values_max);
@@ -35,12 +35,6 @@ if (keyboard_string != "" && real(keyboard_string) == (value1 + value2)) {
 		
 		// Reset the keyboard_string value
 		keyboard_string = ""; 
-		
-		// Difficulty progression
-		//if (questions_solved == questions_upgrade) {
-		//	values_max++;
-		//	questions_upgrade *= 2
-		//}
 		
 		// Creation of the upgrade
 		CreateUpgrades();
