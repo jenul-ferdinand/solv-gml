@@ -1,1 +1,0 @@
-draw_sprite(spr_close_icon, image_index, x, y);
