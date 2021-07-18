@@ -11,8 +11,21 @@ Inspired by the game Cookie Clicker by Orteil, this takes a different approach. 
 
 The end goal is to have the most marks.
 
----
+<br /> <br /> <br /> <br />
 
-### Screenshots
+---
+<p align="center">
+  <em>Jump to: <br><a href="#features">Features</a> — <a href="#screenshots">Screenshots</a> — <a href="#qa">Questions & Answers</a> — <a href="#how-do-i-get-it">Download</a></em>
+</p>
+
+## Features
+
+## Screenshots
+
+## Q&A
+
+## How Do I Get It
+
 
 This project is licensed under the terms of the MIT license.
+
