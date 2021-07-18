@@ -5,15 +5,19 @@ mouse_click = mouse_check_button_pressed(mb_left);
 mouse_click_release = mouse_check_button_released(mb_left);
 
 // Debugging
-if (keyboard_check_pressed(ord("R"))) { game_restart(); }
-if (keyboard_check_pressed(vk_escape)) { game_end(); }
-if (keyboard_check(ord("W"))) { 
-	total_marks += question_value;
-	questions_solved++;
+if (debug) {
+	if (keyboard_check_pressed(ord("R"))) { game_restart(); }
+	if (keyboard_check_pressed(vk_escape)) { game_end(); }
+	if (keyboard_check_pressed(ord("O"))) { debug_display_toggle = !debug_display_toggle; } 
 	
-	RandomiseValues(values_max);
+	if (keyboard_check(ord("W"))) { 
+		total_marks += question_value;
+		questions_solved++;
 	
-	CreateUpgrades();
+		RandomiseValues(values_max);
+	
+		CreateUpgrades();
+	}
 }
 
 // Limit the string to the maximum chars and allow only digits
@@ -23,7 +27,7 @@ keyboard_string = string_copy(string_digits(keyboard_string), 0, char_max);
 if (keyboard_string != "" && real(keyboard_string) == (value1 + value2)) {
 	if (keyboard_check_pressed(vk_enter)) {
 		// Increase total_marks
-		total_marks += question_value;
+		total_marks += question_value; 
 		questions_solved++;
 		
 		// Randomise the two numbers being added/subtracted/multiplied
@@ -33,10 +37,10 @@ if (keyboard_string != "" && real(keyboard_string) == (value1 + value2)) {
 		keyboard_string = ""; 
 		
 		// Difficulty progression
-		if (questions_solved == questions_upgrade) {
-			values_max++;
-			questions_upgrade *= 2
-		}
+		//if (questions_solved == questions_upgrade) {
+		//	values_max++;
+		//	questions_upgrade *= 2
+		//}
 		
 		// Creation of the upgrade
 		CreateUpgrades();
@@ -83,7 +87,7 @@ for (var i = 0; i < array_length(upgrade); i++) {
 }
 
 // Limit scrolling above first upgrade
-if (upgrade[ARITHMETIC].inst_id.y >= upgrade_y) {
+if (upgrade[0].inst_id.y >= upgrade_y) {
 	scroll_up_locked = true;
 } else {
 	scroll_up_locked = false;	

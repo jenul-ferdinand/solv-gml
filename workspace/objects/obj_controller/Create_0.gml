@@ -1,10 +1,13 @@
 randomise(); // Always get random game seed
 
+// MadMath Idle
+
 // Global variables
 globalvar gui_width, gui_height, total_marks;
 gui_width = display_get_gui_width(); // GUI width
 gui_height = display_get_gui_height(); // GUI height
 total_marks = 0; // Points counting (marks)
+
 
 
 #region GUI Elements
@@ -37,7 +40,14 @@ minimise_button_sprite = spr_minimise_icon;
 // Titlebar buttons
 titlebar_button_width = sprite_get_width(close_button_sprite);
 
+
+// Seperator
+seperator_colour = make_colour_rgb(34, 33, 38);
+seperator_width = 6;
+right_seperator_x = 960;
+
 #endregion
+
 
 display_marks = 0; // Displayed points, using lerp to count one by one
 display_marks_lerp = 0.3; // Displayed points interpolation amount
@@ -54,13 +64,15 @@ questions_upgrade = 5; // How many questions does the user need to solve to prog
 marks_per_second = 0; // Marks per second, a passive effect that adds points per second
 marks_per_second_counter = 0; // Counter for executing the marks per second additions
 
-debug_toggle = false; // Toggle to turn on debug mode
+debug = true; // Debug mode
+debug_display_toggle = false; // Toggle to turn on debug display
 
 
 
 // Upgrades 
 upgrade_x = 990;
 upgrade_y = 110;
+upgrade_gap = 12;
 last_upgrade_ybase = upgrade_y * 5;
 
 // Upgrade class constructor
@@ -85,7 +97,7 @@ function Upgrade(_sprite, _label, _description, _cost, _marks_per_second, _quest
 
 // Creating the upgrade structs
 upgrade = [
-	new Upgrade(spr_pencil, "Pencil", "To do mathematics, you need something to write with.", 15, 0, 0.1),
+	new Upgrade(spr_pencil, "Pencil", "To do mathematics, you need something to write with.", 15, 0, 1),
 	new Upgrade(spr_mathematician, "Mathematician", "Mathematicians do maths for a living.", 100, 1, 0),
 	new Upgrade(spr_trigonometry, "Trigonometry", "Trigonometry is all about triangles", 500, 4, 0),
 	new Upgrade(spr_amphetamine, "Amphetamine", "A drug that increases focus and concentration.", 3000, 10, 0),
@@ -94,7 +106,7 @@ upgrade = [
 	new Upgrade(spr_space_travel, "Space Travel", "Maybe we can find Aliens to help solve the math questions", 200000, 1, 0),
 	new Upgrade(spr_time_travel, "Time Travel", "Travelling into the future to find the answer to our questions", 1500000, 1, 0),
 	new Upgrade(spr_animal_sacrifice, "Animal Sacrifice", "A ritiual sacrificing an animal to solve maths", 123666666, 6666, 0),
-	new Upgrade(spr_undead_experiments, "Undead Experiments", "Bringing the dead back to life", 3999999999, 999999, 0),
+	new Upgrade(spr_undead_experiments, "Undead Experiment", "Bringing the dead back to life", 3999999999, 999999, 0),
 	new Upgrade(spr_nuclear_warefare, "Nuclear Warefare", "This isn't about solving maths anymore", 75000000000, 10000000, 0),
 ]
 
@@ -105,6 +117,6 @@ upgrade_creation[CALCULUS] = 3;
 for (var i = 3; i < array_length(upgrade); i++) { upgrade_creation[i] = 3; }
 
 // Scrolling upgrades
-scroll_amount = 28;
+scroll_amount = 36;
 scroll_down_locked = false;
 scroll_up_locked = false;

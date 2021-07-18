@@ -1,7 +1,5 @@
 #region Debugging
-if (keyboard_check_pressed(ord("O"))) { debug_toggle = !debug_toggle; } 
-if (debug_toggle) {
-	
+if (debug_display_toggle) {
 	// Game information
 	var yy = 40;
 	draw_text(10, yy, "total_marks: " + string(total_marks));						yy += 15;

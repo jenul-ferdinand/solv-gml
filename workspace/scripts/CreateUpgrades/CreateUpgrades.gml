@@ -9,7 +9,7 @@ function CreateUpgrades(){
 			// Create an upgrade and assign its properties
 			var yy;
 			if (i == 0) { yy = upgrade_y; } 
-			else { yy = upgrade[i-1].inst_id.y + sprite_get_height(spr_upgrade_button) + 25; }
+			else { yy = upgrade[i-1].inst_id.y + sprite_get_height(spr_upgrade_button) + upgrade_gap; }
 					
 			var upgrade_instance = instance_create_layer(upgrade_x, yy, "Instances", obj_upgrade);
 			upgrade_instance.stage = upgrade_creation[i];

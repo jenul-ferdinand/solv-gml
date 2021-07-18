@@ -4,48 +4,36 @@ mouse_click = mouse_check_button_pressed(mb_left);
 
 // Purchasing the upgrade
 if (total_marks >= cost) { 
-	
-	cost_colour = c_lime;
-	
 	if (mouse_over) {
 		
-		// Brightened sprite index
-		image_index = 1;
+		image_index = 1; // Brightened sprite index
 		
 		if (mouse_click) {
-			// Flash
-			flash_alpha = 1;
-		
-			// Reduce cost from total_marks
-			total_marks -= cost;
-		
-			// Add question value
-			obj_controller.question_value += question_value;
-		
-			// Add total_marks per second
-			obj_controller.marks_per_second += marks_per_second;
-			show_debug_message("Marks per second: " + string(obj_controller.marks_per_second))
 			
-			// Increase quantity
-			quantity++;
+			flash_alpha = 1;										// Flash
+	
+			total_marks -= cost;									// Reduce cost from total_marks
 			
-			// Cost increase
-			cost = round(base_cost * power(1.15, quantity));
+			obj_controller.question_value += question_value;		// Add question value
+			obj_controller.marks_per_second += marks_per_second;	// Add total_marks per second
+		
+			quantity++;												// Increase quantity
 			
-			// Reset image index
-			image_index = 0;
+			cost = round(base_cost * power(1.15, quantity));		// Cost increase
+			
+			image_index = 0;										// Reset image index
 		}
+		
 	} else { 
-		// Reset image index
-		image_index = 0;	
+		image_index = 0; // Reset image index
 	}
 }
 
 // Change colour
 if (total_marks < cost) { 
-	cost_colour = c_red; 
+	cost_colour = cost_colour_red; 
 } else { 
-	cost_colour = c_lime;	
+	cost_colour = cost_colour_green;	
 }
 
 
