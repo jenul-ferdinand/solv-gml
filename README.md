@@ -5,7 +5,7 @@ This computer application was made for a school project to help people build the
 
 ---
 
-<video align="right" width="400" alt="Game Showcase" src="videos\game-showcase.mp4"></video>
+<img align="right" width="400" alt="Game Showcase" src="images\game-showcase.gif"></img>
 
 Inspired by the game Cookie Clicker by Orteil, this takes a different approach. Instead of clicking cookies, you solve simple maths questions to earn marks which you can spend on upgrades to get more marks. 
 
