@@ -1,10 +1,10 @@
 /// @func CreateUpgrades
 
 function CreateUpgrades(){
-	for (var i = 0; i < array_length(upgrade_creation); i++) {
+	for (var i = 0; i < array_length(upgrade); i++) {
 			
 		// Check all stages and check if already exists
-		if (total_marks >= upgrade_creation[i] && upgrade[i].inst_id == -1) {
+		if (total_marks >= upgrade[i].creation && upgrade[i].inst_id == -1) {
 				
 			// Create an upgrade and assign its properties
 			var yy;
@@ -12,7 +12,7 @@ function CreateUpgrades(){
 			else { yy = upgrade[i-1].inst_id.y + sprite_get_height(spr_upgrade_button) + upgrade_gap; }
 					
 			var upgrade_instance = instance_create_layer(upgrade_x, yy, "Instances", obj_upgrade);
-			upgrade_instance.stage = upgrade_creation[i];
+			upgrade_instance.stage = upgrade[i].creation;
 			upgrade_instance.sprite = upgrade[i].sprite;
 			upgrade_instance.label = upgrade[i].label;
 			upgrade_instance.cost = upgrade[i].cost;
