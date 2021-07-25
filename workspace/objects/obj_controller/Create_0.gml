@@ -28,7 +28,7 @@ questions_solved = 0; // How many questions has the user solved
 marks_per_second = 0; // Marks per second, a passive effect that adds points per second
 marks_per_second_counter = 0; // Counter for executing the marks per second additions
 
-developer_mode = true; // Debug mode (for developer)
+developer_mode = false; // Debug mode (for developer)
 debug_display_toggle = false; // Toggle to turn on developer_mode display
 
 
@@ -66,6 +66,7 @@ right_seperator_x = 960; // X position of the right side seperator
 upgrade_x = 990; // X position of the upgrade buttons
 upgrade_y = 110; // Y position of the top upgrade
 upgrade_gap = 12; // Gap between each of the upgrades vertically
+last_upgrade_index = 0; // Last created upgrade index
 last_upgrade_ybase = upgrade_y * 5; // Y position of the last upgrade
 upgrades_heading_x = gui_width - 266; // X position of the heading for the upgrades area
 

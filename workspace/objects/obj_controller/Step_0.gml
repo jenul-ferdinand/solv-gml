@@ -73,19 +73,25 @@ for (var i = 0; i < array_length(upgrade); i++) {
 	if (mouse_wheel_down() && !scroll_down_locked) {
 		upgrades_id.y -= scroll_amount;
 	}
+	
+	// Get the last upgrade
+	if (upgrade[i].inst_id != -1) { 
+		last_upgrade_index = i;	
+	}
 }
-// Limit scrolling above first upgrade
+// Limit scrolling first upgrade
 if (upgrade[0].inst_id.y >= upgrade_y) {
 	scroll_up_locked = true;
 } else {
 	scroll_up_locked = false;	
 }
-// Limit scrolling below last upgrade
-if (upgrade[array_length(upgrade)-1].inst_id.y <= last_upgrade_ybase) {
+// Limit scrolling last visible upgrade
+if (upgrade[last_upgrade_index].inst_id.y <= last_upgrade_ybase) {
 	scroll_down_locked = true;
 } else {
 	scroll_down_locked = false;	
 }
+
 // Scroll debugging (only shown in gamemaker ide compiler)
 show_debug_message("first upgrade y: " + string(upgrade[0].inst_id.y));
 show_debug_message("fifth upgrade y: " + string(upgrade[4].inst_id.y));
@@ -101,7 +107,7 @@ if (developer_mode) {
 	// If holding W increase questions, for debugging. 
 	if (keyboard_check(ord("W"))) {
 		// Add Marks
-		total_marks += question_value * 10000;
+		total_marks += question_value;
 		
 		// Increment questions solved
 		questions_solved++;
