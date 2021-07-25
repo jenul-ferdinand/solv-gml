@@ -20,9 +20,9 @@ The end goal is to have the most marks.
 </p>
 
 ## Things to Add
-* Large number representation e.g. "10 Million"
-* More arithmetic, 3 remaining e.g. "Subtraction, Multiplication, Division"
-* Upgrades should be hidden until the user reaches a certain stage.
+* Large number representation e.g. "10 Million" ✔️
+* More arithmetic, 3 remaining e.g. "Subtraction, Multiplication, Division" ✔️
+* Each upgrade should be hidden until the user reaches a certain stage. ✔️
 * Question solve indication effect.
 * Saving & Loading
 * Achievements
@@ -51,7 +51,7 @@ One design concern I had was if I should make my own titlebar or use the default
 
 Photoshop CC was used to design the user interface. The .psd file can be found in [resources/interface.psd](resources/interface.psd). At the moment, the view is static so there is only one room in the program. There will be a scroll area for the upgrades.
 
-Used Github user Akseli Palén's [open emoji sprites](https://github.com/axelpale/openmoji-spritemap-generator) to added emoji icons for the upgrades.
+Used Github user Akseli Palén's [open emoji spritesheets](https://github.com/axelpale/openmoji-spritemap-generator) to add emoji icons for the upgrades.
 
 ### Technical Documentation
 
@@ -71,13 +71,18 @@ I had to make sure the upgrades were priced so that the game was addicting and c
 * [Numbers Getting Bigger: The Design and Math of Incremental Games](https://gamedevelopment.tutsplus.com/articles/numbers-getting-bigger-the-design-and-math-of-incremental-games--cms-24023)
 * [The Math of Idle Games, Part 1](https://blog.kongregate.com/the-math-of-idle-games-part-i/)
 
+I added a developer_mode boolean variable which helps me test new features quickly since I can increase the 
+
 ### Test - Plan and Report
 |Test Criteria|Date|Outcome|
 |-------------|----|-------|
 |Dragging titlebar to different monitor|14/07/2021|Game lags alot when dragging towards the second monitor. Need to find a fix for this|
-|Retest Dragging titlebar to different monitor|15/07/2021|Found a fix for this now works perfect. See commit list for changes.|
-|Checking if only numbers can be typed in to the text area|18/07/2021|Only numbers can be entered, unsure about numpad keys.
+|Retest Dragging titlebar to different monitor|15/07/2021|Found a fix for this now works perfect. See commit list for changes|
+|Checking if only numbers can be typed in to the text area|18/07/2021|Only numbers can be entered, unsure about numpad keys|
 |Does it work after being exported as .exe|18/07/2021|Works as executable|
+|Does the tooltip come up when the upgrade is hidden behind the upgrades heading|20/07/2021|The tooltip still comes up when hovering over the upgrades heading area. Gonna leave this bug in, doesn't effect the user experience too much|
+|Do all of the upgrades get created when the total_marks exceed all the upgrade[i].creation values.|20/07/2021|All of the upgrades get created
+
 
 ### Release and Maintain - User Documentation
 **How to install and start program:**
@@ -87,7 +92,7 @@ I had to make sure the upgrades were priced so that the game was addicting and c
 
 **How to play:**
 * The question area is on the left, you can type the answer and press enter to submit it.
-* Keep answering questions until you see can purchase an upgrade. The "Pencil" upgrade increases your "Question Value", which is how many "Marks" you get per question. All the other upgrades increase your "Marks Per Second" which increases your "Marks" every second, even when idle.
+* Keep answering questions until you can purchase an upgrade. The "Pencil" upgrade increases your "Question Value", which is how many "Marks" you get per question. All the other upgrades increase your "Marks Per Second" which increases your "Marks" every second, even when idle.
 * You can choose what type of questions you want to have e.g. Addition, Subtraction, Multiplication, or Division. Under the question area.
 
 ## How Do I Get It

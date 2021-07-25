@@ -1,4 +1,9 @@
-#region Debugging
+gui_mouse_x = device_mouse_x_to_gui(0);
+gui_mouse_y = device_mouse_y_to_gui(0);
+
+
+
+// Debug display to show game information
 if (debug_display_toggle) {
 	// Game information
 	var yy = 40;
@@ -11,20 +16,21 @@ if (debug_display_toggle) {
 	draw_line(300, 0, 300, gui_height);
 	draw_line(964, 0, 964, gui_height);
 }
-#endregion 
 
 // Marks
 draw_set_halign(fa_left);
 draw_set_font(fn_marks);
-var marks_converted = StringThousands(round(display_marks));
+var marks_converted = string(StringLargeNumber(round(display_marks)));
 var marks_string = marks_converted + " Marks";
+// Proper english language (e.g. Can't have "1 Marks" or "0 Marks")
 if (total_marks == 1) { marks_string = marks_converted + " Mark"; }
 else if (total_marks == 0) { marks_string = "No Marks"; }
 else { marks_string = marks_converted + " Marks"; } 
+// Draw the string
 draw_text(left_windowbuffer, top_windowbuffer, marks_string);
 draw_set_font(-1);
 
-// Question Value
+// Drawing the question value and marks per second
 draw_set_font(fn_question_value);
 draw_text(left_windowbuffer, top_windowbuffer + 45, "Question Value: " + string(question_value));
 draw_text(left_windowbuffer, top_windowbuffer + 70, "Marks Per Second: " + string(marks_per_second));
@@ -32,7 +38,7 @@ draw_set_font(-1);
 
 // Question
 draw_set_font(fn_question_area);
-draw_text(left_windowbuffer, 300, string(value1) + " + " + string(value2))
+draw_text(left_windowbuffer, 300, string(value1) + " " + arithmetic_string[arithmetic_type] + " " + string(value2))
 // Answer
 draw_set_halign(fa_left);
 draw_text(left_windowbuffer, 370, "= " + keyboard_string);
@@ -73,16 +79,15 @@ draw_sprite(close_button_sprite, 0, close_button_x, close_button_y);
 var center_x = close_button_x + titlebar_button_width/2;
 var center_y = close_button_y + titlebar_button_width/2;
 // Closing the game
-if (point_in_circle(gui_mouse_x, gui_mouse_y, center_x, center_y, titlebar_button_width/2) && mouse_click) {
+if (point_in_circle(gui_mouse_x, gui_mouse_y, center_x, center_y, titlebar_button_width/2) && mouse_check_button_pressed(mb_left)) {
 	game_end();
 }
-
 // Minimise button
 draw_sprite(minimise_button_sprite, 0, minimise_button_x, minimise_button_y);
 var center_x = minimise_button_x + sprite_get_width(minimise_button_sprite)/2;
 var center_y = minimise_button_y + sprite_get_width(minimise_button_sprite)/2;
 // Minimising the window
-if (point_in_circle(gui_mouse_x, gui_mouse_y, center_x, center_y, titlebar_button_width/2) && mouse_click_release) {
+if (point_in_circle(gui_mouse_x, gui_mouse_y, center_x, center_y, titlebar_button_width/2) && mouse_check_button_released(mb_left)) {
 	window_command_run(window_command_minimize);
 }
 
